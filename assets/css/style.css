@@ -1,0 +1,29 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  background-color: #111;
+  padding: 1rem;
+}
+
+.project-card {
+  background-color: #111;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
