@@ -5,9 +5,12 @@ async function loadComponent(id, path) {
   document.getElementById(id).innerHTML = html;
 }
 
-// Load all components
+// Get the GitHub repo name from the URL
+const base = window.location.pathname.split("/")[1]; // e.g., "pj-portfolio"
+const root = `/${base}/`; // Ensures there's a leading + trailing slash
+
 window.addEventListener("DOMContentLoaded", () => {
-  loadComponent("nav-slot", "components/nav.html");
-  loadComponent("header-slot", "components/header.html");
-  loadComponent("footer-slot", "components/footer.html");
+  loadComponent("nav-slot", `${root}components/nav.html`);
+  loadComponent("header-slot", `${root}components/header.html`);
+  loadComponent("footer-slot", `${root}components/footer.html`);
 });
