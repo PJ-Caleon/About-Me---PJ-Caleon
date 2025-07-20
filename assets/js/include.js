@@ -7,7 +7,7 @@ async function loadComponent(id, path) {
 
 // Load all components
 window.addEventListener("DOMContentLoaded", () => {
-  loadComponent("nav-slot", "/components/nav.html");
-  loadComponent("header-slot", "/components/header.html");
-  loadComponent("footer-slot", "/components/footer.html");
+  loadComponent("nav-slot", "components/nav.html");
+  loadComponent("header-slot", "components/header.html");
+  loadComponent("footer-slot", "components/footer.html");
 });
