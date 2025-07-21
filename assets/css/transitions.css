@@ -1,0 +1,21 @@
+main {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  min-height: 70vh;
+  padding: 2rem;
+  transform: translateX(0);
+}
+
+.slide-out {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-in {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.show {
+  transform: translateX(0);
+  opacity: 1;
+}

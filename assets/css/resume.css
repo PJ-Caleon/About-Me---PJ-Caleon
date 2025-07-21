@@ -1,0 +1,59 @@
+.resume-container {
+  max-width: 850px;
+  margin: auto;
+  padding: 2rem;
+  background: #000;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.resume-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.resume-header h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  text-align: center;
+  color: #ccc;
+}
+
+.resume-header p {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+h3 {
+  border-bottom: 1px solid #555;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.entry .left {
+  flex: 3;
+}
+
+.entry .right {
+  flex: 1;
+  text-align: right;
+  color: #aaa;
+}
+
+ul {
+  margin: 0.5rem 0 0 1.2rem;
+  padding: 0;
+}

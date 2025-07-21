@@ -1,54 +1,5 @@
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-nav {
-  background-color: #111;
-  padding: 1rem;
-}
-
-.project-card {
-  background-color: #111;
-  padding: 1rem;
-  margin: 1rem 0;
-  border: 1px solid #333;
-  border-radius: 8px;
-}
-main {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  min-height: 70vh;
-  padding: 2rem;
-  transform: translateX(0);
-}
-
-.slide-out {
-  transform: translateX(100%);
-  opacity: 0;
-}
-
-.slide-in {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-.show {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-
-
-
+@import url('base.css');
+@import url('nav.css');
+@import url('transitions.css');
+@import url('cards.css');
+@import url('about.css'); 

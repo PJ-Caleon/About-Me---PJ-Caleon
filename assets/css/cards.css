@@ -1,0 +1,37 @@
+.project-card {
+  background-color: #111;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+.card-slider {
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  height: 100px;
+  position: relative;
+}
+
+.card-track {
+  display: flex;
+  gap: 1rem;
+  animation: slideCards 12s linear infinite;
+}
+
+.card {
+  min-width: 200px;
+  padding: 1rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+@keyframes slideCards {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}

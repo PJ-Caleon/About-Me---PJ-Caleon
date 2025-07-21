@@ -5,14 +5,42 @@
   <title>About Me - PJ Caleon</title>
   <link rel="stylesheet" href="/assets/css/style.css" />
   <script src="/assets/js/include.js" defer></script>
+  <script src="/assets/js/slider.js" defer></script> <!-- For card slider later -->
 </head>
 <body>
   <div id="nav-slot"></div>
   <div id="header-slot"></div>
 
-  <main style="padding: 2rem;">
-   <!-- Your page content here -->
-    About Me - PJ Caleon
+  <main style="padding: 2rem; text-align: center;">
+    
+    <!-- 🖼️ Image -->
+    <section>
+      <img src="/assets/images/profile.jpg" alt="PJ Caleon" style="width: 200px; border-radius: 50%; border: 3px solid white; margin-bottom: 1rem;">
+    </section>
+
+    <!-- 📝 Short paragraph -->
+    <section style="max-width: 600px; margin: auto; font-size: 1.1rem;">
+      <p>I am a computer engineering undergraduate student focusing on both hardware and software development. Currently
+learning embedded systems, digital design, and machine learning. I have a passion for problem-solving and implementing
+new innovative technologies. A fast learner who adapts quickly to new advancements, I thrive in dynamic environments and
+bring dedication and creativity to every project.
+</p>
+    </section>
+
+    <!-- 🃏 Card slider (auto-looping) -->
+    <section style="margin-top: 3rem;">
+      <div class="card-slider">
+        <div class="card-track">
+          <div class="card">EMBEDDED SYSTEMS</div>
+          <div class="card">UNIT TESTING</div>
+          <div class="card">CI/ CD</div>
+          <div class="card">PROJECT MANAGEMENT</div>
+          <div class="card">PROGRAMMER</div>
+          <div class="card">SOLDIERING</div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <div id="footer-slot"></div>
