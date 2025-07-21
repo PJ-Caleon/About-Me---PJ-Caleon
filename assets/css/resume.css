@@ -7,26 +7,28 @@
   font-family: 'Helvetica Neue', sans-serif;
 }
 
+.resume-header {
+  text-align: center;
+}
+
 .resume-header h1 {
   margin: 0;
   font-size: 2rem;
-  text-align: center;
 }
 
 .resume-header h2 {
   font-size: 1.2rem;
   font-weight: normal;
-  text-align: center;
   color: #ccc;
 }
 
 .resume-header p {
-  text-align: center;
   font-size: 0.9rem;
 }
 
 section {
   margin-top: 2rem;
+  text-align: left; /* <-- fix: all content left-aligned */
 }
 
 h3 {
@@ -38,7 +40,7 @@ h3 {
 .entry {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -56,4 +58,9 @@ h3 {
 ul {
   margin: 0.5rem 0 0 1.2rem;
   padding: 0;
+  text-align: left;
 }
+.nowrap {
+  white-space: nowrap;
+}
+
