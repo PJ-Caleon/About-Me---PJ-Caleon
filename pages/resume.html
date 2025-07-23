@@ -36,6 +36,26 @@
 
     <hr />
 
+    <!-- EXPERIENCE -->
+    <section>
+      <h3>Experience</h3>
+      <div class="entry">
+        <div class="left">
+          <strong>Dyson Internship</strong><br />
+          Embedded Software Intern<br />
+          <ul>
+            <li>Expanded knowledge on Microcontrollers (NXP, STM32, ESP32)</li>
+            <li>Introduction & Implementation to CI/ CD</li>
+          </ul>
+        </div>
+        <div class="right">
+  <span class="nowrap">May 2025 – August 2025</span><br />
+</div>
+      </div>
+    </section>
+
+    <hr />
+
     <!-- EDUCATION -->
     <section>
       <h3>Education</h3>
@@ -46,14 +66,14 @@
           GPA: 2.832
         </div>
         <div class="right">
-  <span class="nowrap">October 2020 – February 2026</span><br />
+  <span class="nowrap">October 2020 – Expected February 2026</span><br />
   <span class="nowrap">Undergraduate Studies</span>
 </div>
       </div>
       <div class="entry">
         <div class="left">
           <strong>UST Angelicum College</strong><br />
-          STEM Track
+          Science, Technology, Engineering, and Mathematics (STEM)<br />
           <ul>
             <li>Took part in Math and Programming club</li>
             <li>Hands-on experience in embedded systems (Lego sensor bots)</li>
@@ -93,44 +113,110 @@
         <div class="left">
           <strong>Glove Controllers for 3D Media Creation in VR</strong>
           <ul>
-            <li>Assist 3D artists in digital creation using gloves</li>
-            <li>Collaborated with a multidisciplinary team</li>
-            <li>Enhanced intuitiveness in 3D modeling in VR</li>
+            <li>Developing an innovative glove controller to assist 3D artists in creating digital artworks</li>
+            <li>Collaborated with a multidisciplinary team to design, prototype, and refine the software system architecture</li>
+            <li>Focused on enhancing ease of use and intuitiveness in 3D modeling environments, with future integration into virtual reality</li>
           </ul>
         </div>
         <div class="right">(Ongoing, 2025)</div>
       </div>
       <div class="entry">
         <div class="left">
-          <strong>AI Model for Animal Classification</strong>
+          <strong>[Dyson] Supersonic Prototype</strong>
           <ul>
-            <li>Built using MLP (Multilayer Perceptron)</li>
-            <li>Used fundamental parameters for classification</li>
+            <li>Created a replica of a Supersonic with NXP boards</li>
+            <li>Implented Unit Testing for CI/ CD</li>
+            <li>LCD Feature Added</li>
           </ul>
         </div>
-        <div class="right">(Ongoing, 2025)</div>
+        <div class="right">June 2025 - August 2025</div>
       </div>
       <div class="entry">
         <div class="left">
-          <strong>IoT Smart Trashbin</strong>
+          <strong>[Dyson] Torque Test Rig</strong>
           <ul>
-            <li>ESP32 WiFi module, ultrasonic sensor + buzzer</li>
-            <li>Trashbin alerts when full</li>
+            <li>Implemented a semi-automatic torque test rig as a destructive test for impellers</li>
+            <li>Utilize STM32 Nucelo 64</li>
           </ul>
         </div>
-        <div class="right">March – April 2025</div>
+        <div class="right">July 2025 – August 2025</div>
+      </div>
+      <div class="entry">
+        <div class="left">
+          <strong>Developed an IOT Smart Trashbin</strong>
+          <ul>
+            <li>Developed a smart trashbin using ESP32 Wifi Module that alarms user when trashbin is almost full with a buzzer attached to the circuit</li>
+          </ul>
+        </div>
+        <div class="right">March 2025 – April 2025</div>
+      </div>
+      <div class="entry">
+        <div class="left">
+          <strong>Law Office Automation System</strong>
+          <ul>
+            <li>Collaborated in developing the UI of a web-based platform to automate document request and case management</li>
+            <li>Implemented automated notifications and secure client-staff communication</li>
+            <li>Ensuring data security with authentication, encryption, and role-based access control</li>
+          </ul>
+        </div>
+        <div class="right">April 2025</div>
+      </div>
+      <div class="entry">
+        <div class="left">
+          <strong>12V Power Supply</strong>
+          <ul>
+            <li>Developed an AC to DC power supply to charge Lithium batteries</li>
+            <li>Served as a project lead, overseeing development and coordination with the team</li>
+          </ul>
+        </div>
+        <div class="right">August 2023</div>
       </div>
     </section>
 
     <hr />
 
-    <!-- DOWNLOAD BUTTON -->
+    <!-- Seminars -->
     <section>
+      <h3>Seminars</h3>
+      <div class="entry">
+        <div class="left">
+          <strong>Dyson #FutureThinkersNeeded</strong><br />
+          <ul>
+            <li>Attended a career session showcasing Dyson's innovative products and internship opportunities</li>
+            <li>Gained insights into the application of embedded systems in product development</li>
+          </ul>
+        </div>
+        <div class="right">May 2024</div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Skills -->
+     <section>
+      <h3>Skills</h3>
+        <ul class="skills-list">
+          <li>Programming</li>
+          <li>Embedded Systems</li>
+          <li>Project Managent</li>
+          <li>Machine Learning</li>
+          <li>CI/ CD</li>
+          <li>Frontend Developer</li>
+        </ul>
+     </section>
+
+    <hr />
       
+
+    <!-- DOWNLOAD BUTTON -->
+    <section style = "text-align: center; margin-top: 2rem;">
+      <button id="downloadBtn" class="downloadBtn">Download Resume as PDF</button> 
     </section>
 
   </main>
 
   <div id="footer-slot"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="../assets/js/download.js"></script>
 </body>
 </html>

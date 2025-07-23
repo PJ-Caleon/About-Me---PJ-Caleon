@@ -6,12 +6,28 @@ async function loadPage(page) {
   main.classList.add("slide-out");
 
   // Wait for animation to finish
-  await new Promise(r => setTimeout(r, 400));
+  await new Promise((r) => setTimeout(r, 400));
 
   // Load new content
   const res = await fetch(`/pages/${page}.html`);
   const html = await res.text();
   main.innerHTML = html;
+
+  // ✅ Execute any <script> tags in the fetched HTML
+  const temp = document.createElement("div");
+  temp.innerHTML = html;
+
+  const scripts = temp.querySelectorAll("script");
+  scripts.forEach((oldScript) => {
+    const newScript = document.createElement("script");
+    if (oldScript.src) {
+      newScript.src = oldScript.src;
+      newScript.defer = true; // optional, for non-blocking
+    } else {
+      newScript.textContent = oldScript.textContent;
+    }
+    document.body.appendChild(newScript);
+  });
 
   // Slide in
   main.classList.remove("slide-out");
