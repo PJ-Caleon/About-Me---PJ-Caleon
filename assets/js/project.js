@@ -1,32 +1,28 @@
 (() => {
-  // ✅ Prevent redeclaration if script is injected again
   if (window._projectsAlreadyLoaded) return;
   window._projectsAlreadyLoaded = true;
 
   const projectRoot = "/projects/";
+  let _projectsRendered = false;
 
   async function loadProjects() {
-    console.log("📦 Loading project cards...");
+    if (_projectsRendered) return;
+    _projectsRendered = true;
+
+    console.trace("📦 loadProjects called from:");
     
-    const projectList = ["test"]; // 🔧 Add more folder names here
+    const projectList = ["test", "test2"];
     const container = document.querySelector("main");
+    if (!container) return;
 
-    if (!container) {
-      console.warn("⚠️ <main> container not found.");
-      return;
-    }
-
-    container.innerHTML = "<h1>My Projects</h1><br />"; // Clear or set header
-
+    container.innerHTML = "<h1>My Projects</h1><br />";
     for (const name of projectList) {
       try {
         const res = await fetch(`${projectRoot}${name}/data.json`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
 
         const card = document.createElement("div");
         card.className = "project-card";
-
         card.innerHTML = `
           <h2>${data.title}</h2>
           <img src="${projectRoot}${name}/${data.image}" alt="${data.title}" class="project-image" />
@@ -35,7 +31,6 @@
           ${data.github ? `<a href="${data.github}" target="_blank">🔗 GitHub</a>` : ""}
           <hr />
         `;
-
         container.appendChild(card);
       } catch (err) {
         console.error(`❌ Failed to load project "${name}":`, err);
@@ -43,6 +38,11 @@
     }
   }
 
-  // ✅ Make it available globally so nav.js can call it
+  // Global export
   window.loadProjects = loadProjects;
+
+  // Optionally auto-invoke once
+  window.addEventListener("DOMContentLoaded", () => {
+    loadProjects();
+  });
 })();

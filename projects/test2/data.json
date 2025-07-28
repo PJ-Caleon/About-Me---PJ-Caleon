@@ -1,0 +1,7 @@
+{
+  "title": "Solar App",
+  "description": "A clean UI weather forecast web app using OpenWeatherMap API.",
+  "materials": "HTML, CSS, JS, OpenWeatherMap API",
+  "image": "thumbnail.jpg",
+  "github": "https://github.com/yourname/weather-app"
+}
