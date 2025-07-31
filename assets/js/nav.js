@@ -9,14 +9,14 @@ async function loadPage(page) {
   await new Promise((r) => setTimeout(r, 400));
 
   // Load new page HTML
-  const res = await fetch(`/pages/${page}.html`);
+  const res = await fetch(`pages/${page}.html`);
   const html = await res.text();
   main.innerHTML = html;
 
   // ✅ If loading resume, manually inject download.js
   if (page === "resume") {
     const script = document.createElement("script");
-    script.src = "/assets/js/download.js";
+    script.src = "assets/js/download.js";
     script.onload = () => {
       console.log("✅ download.js loaded manually");
       if (typeof setupDownloadButton === "function") {
@@ -44,7 +44,7 @@ async function loadPage(page) {
       // Resolve relative paths
       let resolvedSrc = oldScript.src;
       if (!resolvedSrc.startsWith("http") && !resolvedSrc.startsWith("/")) {
-        resolvedSrc = `/assets/js/${resolvedSrc.split("/").pop()}`;
+        resolvedSrc = `assets/js/${resolvedSrc.split("/").pop()}`;
       }
       newScript.src = resolvedSrc;
     } else {
@@ -55,7 +55,7 @@ async function loadPage(page) {
 
     if (page === "projects") {
   const script = document.createElement("script");
-  script.src = "/assets/js/project.js";
+  script.src = "assets/js/project.js";
   script.onload = () => {
     console.log("✅ project.js loaded manually");
     if (typeof loadProjects === "function") {
