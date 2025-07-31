@@ -3,7 +3,7 @@ async function loadProjects() {
   const folders = ['project1', 'project2']; // or fetched via JS if hosted dynamically
 
   for (const folder of folders) {
-    const res = await fetch(`/About-Me---PJ-Caleon/projects/${folder}/data.json`);
+    const res = await fetch(`/${folder}/data.json`);
     const data = await res.json();
 
     const card = document.createElement('div');
@@ -11,13 +11,13 @@ async function loadProjects() {
     card.innerHTML = `
       <h2>${data.title}</h2>
       <p>${data.description}</p>
-      <img src="/About-Me---PJ-Caleon/projects/${folder}/${data.image}" width="100%">
+      <img src="${folder}/${data.image}" width="100%">
       <p><a href="${data.github}" target="_blank">View on GitHub</a></p>
     `;
     container.appendChild(card);
   }
 }
 
-if (window.location.pathname.includes('projects.html')) {
+if (window.location.pathname.includes('/projects.html')) {
   loadProjects();
 }
