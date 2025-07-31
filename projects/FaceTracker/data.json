@@ -1,0 +1,7 @@
+{
+  "title": "FACE TRACKING WITH ARDUINO & OPENCV (Personal Project)",
+  "description": "This project tracks the face of the user using a Python OpenCV program that sends data to the Arduino IDE to be sent to the servo SG90 to reflect the movement of the user in real time. This project was made as a side project while having a course for Computer Vision. This project could be expanded for motion tracking designs with actuators reacting to certain situations of what the camera could detect.",
+  "materials": "ESP8266 D1 R1, Servo Motor 9G, LED, 220 Ohm Resistor",
+  "image": "thumbnail.png",
+  "document": "https://github.com/PJ-Caleon/Face-Tracker"
+}

@@ -1,0 +1,7 @@
+{
+  "title": "DOWN COUNTER WITH 7-SEGMENT DISPLAY (Academic Project)",
+  "description": "This is an individual academic project where the task is to create a PIC16F877A counter with a keypad that initially sets the counter's value. This is then reflected on the 7 segment. A start button is added to start the countdown and a pause button is added to pause the count. There are 3 LEDs that display the status of the counter. Greed LED on indicates the count down. A red LED indicates the pause. Lastly a blue LED indicates the timer has reached 0.",
+  "materials": "MikroC PRO for PIC, Proteus, PIC16F877A, Crystal, Capacitor, LED, 4x3 Keypad, Resistor, 74LS48, 7 Segment LCD, Push Button",
+  "image": "thumbnail.png",
+  "document": "https://github.com/PJ-Caleon/DOWN-COUNTER-WITH-7-SEGMENT-DISPLAY"
+}

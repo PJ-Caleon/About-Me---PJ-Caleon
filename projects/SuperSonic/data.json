@@ -1,0 +1,5 @@
+{
+  "title": "SUPERSONIC REPLICA (Dyson Project)",
+  "description": "In an internship at Dyson under the Embedded Software Team. I worked on replicating the SuperSonic hair dryer. The project involved reverse engineering the device to understand its components and functionality. I contributed to the development of a prototype that mimics the original's performance, focusing on the motor control and heating elements.",
+  "materials": "NXP Board, I2C LCD, DC Motor, Potentiometer"
+}

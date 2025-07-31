@@ -1,0 +1,7 @@
+{
+  "title": "SMART IOT TRASHBIN (Academic Project)",
+  "description": "This is a group based project and the main goal of this project is to develop a smart IoT trash bin where it has 3 functions. The lid will automatically open when the user places their hand near the ultrasonic sensor. The second function is for another ultrasonic sensor to detect the level of trash in the bin and be displayed on a LCD that will inform the user how full the trash is, in addition that if the trash is full, a buzzer will be triggered. Last function is to send the trash bin level data to an HTML server for the purpose of alerting the user at a remote location. \nMy role and contribution to this project is that I designed the schematic and built the first 2 functions of this project while I assisted with the IoT function along with my other group members.",
+  "materials": "Arduino Uno, Ultrasonic Sensor, Servo Motor, Buzzer, LCD, ESP8266 Wifi Module",
+  "image": "thumbnail.png",
+  "document": "docs.google.com/document/d/1MStFatoF5YpB31-Iyfhxiu71tqpQmBo4n1j85b_WecY/edit?usp=sharing"
+}
