@@ -1,5 +1,5 @@
 (() => {
-  const projectRoot = "/projects/";
+  const projectRoot = "projects/";
   
   async function loadProjects() {
     // Always allow, unless you want to cache on the same page instance.
