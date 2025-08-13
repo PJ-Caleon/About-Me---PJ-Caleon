@@ -2,15 +2,13 @@ function getBasePath() {
   const repoName = "portfolio"; // change to your repo name
   const pathParts = window.location.pathname.split("/").filter(Boolean);
 
-  // If running locally (no repo name in path), depth is length - 1
-  let depth;
-  if (!pathParts.includes(repoName)) {
-    depth = pathParts.length - 1;
-  } else {
-    depth = pathParts.length - pathParts.indexOf(repoName) - 1;
-  }
+  // Find the index of the repo in the URL
+  const repoIndex = pathParts.indexOf(repoName);
 
-  return depth > 0 ? "../".repeat(depth) : "";
+  // Number of path segments after the repo folder
+  const depthAfterRepo = pathParts.length - (repoIndex + 1);
+
+  return depthAfterRepo > 0 ? "../".repeat(depthAfterRepo) : "";
 }
 
 async function loadComponent(id, path) {
