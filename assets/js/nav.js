@@ -9,7 +9,7 @@ async function loadPage(page) {
   await new Promise((r) => setTimeout(r, 400));
 
   // Load new page HTML
-  const res = await fetch(`${page}.html`);
+  const res = await fetch(`/${page}.html`);
   const html = await res.text();
   main.innerHTML = html;
 
