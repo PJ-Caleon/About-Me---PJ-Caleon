@@ -1,96 +1,77 @@
+function getBasePath() {
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  if (window.location.hostname.includes("github.io") && parts.length > 0) {
+    return `/${parts[0]}/`; // Repo name
+  }
+  return "/";
+}
+
 async function loadPage(page) {
   const main = document.querySelector("main");
 
-  // Slide out
   main.classList.remove("show", "slide-in");
   main.classList.add("slide-out");
-
-  // Wait for animation to finish
   await new Promise((r) => setTimeout(r, 400));
 
-  // Load new page HTML
-  const res = await fetch(`pages/${page}.html`);
+  const res = await fetch(`${getBasePath()}pages/${page}.html`);
   const html = await res.text();
   main.innerHTML = html;
 
-  // ✅ If loading resume, manually inject download.js
-  if (page === "resume") {
-    const script = document.createElement("script");
-    script.src = "assets/js/download.js";
-    script.onload = () => {
-      console.log("✅ download.js loaded manually");
-      if (typeof setupDownloadButton === "function") {
-        console.log("💡 Running setupDownloadButton()...");
-        setupDownloadButton();
-      } else {
-        console.warn("❌ setupDownloadButton is not defined");
-      }
-    };
-    script.onerror = () => {
-      console.error("❌ Failed to load /assets/js/download.js");
-    };
-    document.body.appendChild(script);
-  }
-
-  // ✅ Also handle inline or other script tags in loaded HTML
+  // Parse HTML for scripts & styles
   const temp = document.createElement("div");
   temp.innerHTML = html;
-  const scripts = temp.querySelectorAll("script");
 
+  // Load styles
+  const links = temp.querySelectorAll('link[rel="stylesheet"]');
+  links.forEach((link) => {
+    const newLink = document.createElement("link");
+    newLink.rel = "stylesheet";
+    if (link.href.startsWith("http")) {
+      newLink.href = link.href;
+    } else {
+      newLink.href = getBasePath() + link.getAttribute("href").replace(/^\/+/, "");
+    }
+    document.head.appendChild(newLink);
+  });
+
+  // Load scripts
+  const scripts = temp.querySelectorAll("script");
   scripts.forEach((oldScript) => {
     const newScript = document.createElement("script");
-
     if (oldScript.src) {
-      // Resolve relative paths
-      let resolvedSrc = oldScript.src;
-      if (!resolvedSrc.startsWith("http") && !resolvedSrc.startsWith("")) {
-        resolvedSrc = `assets/js/${resolvedSrc.split("/").pop()}`;
+      if (oldScript.src.startsWith("http")) {
+        newScript.src = oldScript.src;
+      } else {
+        newScript.src = getBasePath() + oldScript.getAttribute("src").replace(/^\/+/, "");
       }
-      newScript.src = resolvedSrc;
     } else {
       newScript.textContent = oldScript.textContent;
     }
-
     document.body.appendChild(newScript);
-
-    if (page === "projects") {
-  const script = document.createElement("script");
-  script.src = "assets/js/project.js";
-  script.onload = () => {
-    console.log("✅ project.js loaded manually");
-    if (typeof loadProjects === "function") {
-      console.log("💡 Running loadProjects()...");
-      loadProjects();
-    } else {
-      console.warn("❌ loadProjects is not defined");
-    }
-  };
-  script.onerror = () => {
-    console.error("❌ Failed to load /assets/js/project.js");
-  };
-  document.body.appendChild(script);
-}
-
   });
 
-  // Slide in animation
+  // Special case for resume
+  if (page === "resume") {
+    const script = document.createElement("script");
+    script.src = `${getBasePath()}assets/js/download.js`;
+    document.body.appendChild(script);
+  }
+
+  // Special case for projects
+  if (page === "projects") {
+    const script = document.createElement("script");
+    script.src = `${getBasePath()}assets/js/project.js`;
+    document.body.appendChild(script);
+  }
+
   main.classList.remove("slide-out");
   main.classList.add("slide-in");
-
   setTimeout(() => {
     main.classList.remove("slide-in");
     main.classList.add("show");
   }, 50);
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      main.classList.remove("slide-in");
-      main.classList.add("show");
-    });
-  });
 }
 
-// Handle clicks on navigation items
 document.addEventListener("click", (e) => {
   const link = e.target.closest("[data-page]");
   if (!link) return;
