@@ -8,7 +8,7 @@ function getBasePath() {
   // Number of path segments after the repo folder
   const depthAfterRepo = pathParts.length - (repoIndex + 1);
 
-  return depthAfterRepo > 0 ? "../".repeat(depthAfterRepo) : "";
+  return depthAfterRepo > 0 ? "".repeat(depthAfterRepo) : "";
 }
 
 async function loadComponent(id, path) {
