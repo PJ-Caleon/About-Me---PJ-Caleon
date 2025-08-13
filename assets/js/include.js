@@ -1,5 +1,5 @@
 function getBasePath() {
-  const repoName = "About-Me---PJ-Caleon"; // change to your repo name
+  const repoName = "pj-caleon.github.io"; // change to your repo name
   const pathParts = window.location.pathname.split("/").filter(Boolean);
 
   // Find the index of the repo in the URL
