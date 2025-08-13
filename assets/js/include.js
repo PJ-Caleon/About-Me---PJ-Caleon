@@ -1,41 +1,28 @@
-// include.js
-document.addEventListener("DOMContentLoaded", function () {
-  includeHTML();
-});
-
 function getBasePath() {
-  // Detect repo name from the first folder in the URL path
+  const repoName = "pj-caleon.github.io"; // change to your repo name
   const pathParts = window.location.pathname.split("/").filter(Boolean);
-  if (window.location.hostname.includes("github.io") && pathParts.length > 0) {
-    return `/${pathParts[0]}/`;
+
+  // Find the index of the repo in the URL
+  const repoIndex = pathParts.indexOf(repoName);
+
+  // Number of path segments after the repo folder
+  const depthAfterRepo = pathParts.length - (repoIndex + 1);
+
+  return depthAfterRepo > 0 ? "".repeat(depthAfterRepo) : "";
+}
+
+async function loadComponent(id, path) {
+  const res = await fetch(getBasePath() + path);
+  if (!res.ok) {
+    console.error(`Failed to load ${path}: ${res.status}`);
+    return;
   }
-  // Localhost or root hosting
-  return "/";
+  const html = await res.text();
+  document.getElementById(id).innerHTML = html;
 }
 
-function includeHTML() {
-  const elements = document.querySelectorAll("[data-include]");
-  const basePath = getBasePath();
-
-  elements.forEach((el) => {
-    const file = el.getAttribute("data-include");
-    if (file) {
-      const url = `${basePath}${file.replace(/^\/+/, "")}`; // remove leading slashes from file paths
-
-      fetch(url)
-        .then((response) => {
-          if (response.ok) return response.text();
-          throw new Error(`Page not found: ${url}`);
-        })
-        .then((html) => {
-          el.innerHTML = html;
-          el.removeAttribute("data-include");
-          includeHTML(); // recursive load for nested includes
-        })
-        .catch((error) => {
-          console.error(error);
-          el.innerHTML = "Content not found.";
-        });
-    }
-  });
-}
+window.addEventListener("DOMContentLoaded", () => {
+  loadComponent("nav-slot", "components/nav.html");
+  loadComponent("header-slot", "components/header.html");
+  loadComponent("footer-slot", "components/footer.html");
+});
