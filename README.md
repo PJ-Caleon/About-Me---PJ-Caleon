@@ -1,54 +1,73 @@
+# About-Me — PJ Caleon
+
+A personal portfolio website showcasing my background, skills, projects, and contact links.  
+Built with **HTML**, **CSS**, and **JavaScript** — designed for smooth navigation and optimized for GitHub Pages.
 
 ---
 
-## 📦 Folders & Files
+### A typical top-level directory layout
+
+    .
+    ├── assets                  # Static files (CSS, JS, Images, PDFs)
+    │   ├── css                  # Stylesheets (modular + shared styles)
+    │   ├── images               # Images & documents (profile, resume, thumbnails)
+    │   └── js                   # JavaScript for navigation, includes, and interactivity
+    │
+    ├── components              # Reusable HTML blocks
+    │   ├── header.html
+    │   ├── footer.html
+    │   └── nav.html
+    │
+    ├── pages                   # Standalone content pages
+    │   ├── about.html
+    │   ├── resume.html
+    │   ├── projects.html
+    │   └── socials.html
+    │
+    ├── projects                # Project-specific data & media
+    │   └── project1
+    │       ├── data.json
+    │       └── thumbnail.jpg
+    │
+    ├── index.html              # Main entry point
+    └── README.md               # Documentation (this file)
+
+---
+
+## 📦 Folder Details
 
 ### **Assets**
-- **`assets/css/`** — All stylesheets (modular, page-specific, plus `style.css` for shared styles).
-- **`assets/images/`** — All static images and documents (profile picture, resume PDF, thumbnails).
-- **`assets/js/`** — JavaScript logic:
-  - `main.js` — Core scripts for page behavior.
-  - `nav.js` — Handles dynamic page navigation with animations.
-  - `include.js` — Injects reusable HTML components.
-  - `download.js` — Manages resume download functionality.
-  - `project.js` — Loads and displays project data dynamically.
-
----
+1. `images` — All images (profile picture, project thumbnails, resume PDF)
+2. `css` — All stylesheets (minimalist black & white theme)
+3. `js` — Handles main navigation, component includes, and dynamic content loading
 
 ### **Components**
-Reusable HTML blocks:
-- `header.html` — Website header/banner.
-- `nav.html` — Navigation menu.
-- `footer.html` — Footer section.
-
----
+1. `header.html` — Website header/banner  
+2. `footer.html` — Footer section  
+3. `nav.html` — Navigation menu
 
 ### **Pages**
-Full content pages (loaded dynamically via `nav.js`):
-- `about.html` — Personal bio & skill highlights.
-- `resume.html` — Education, work experience, and downloadable resume.
-- `projects.html` — Portfolio of projects.
-- `socials.html` — Links to social platforms.
-
----
+1. `about.html` — Bio & skills  
+2. `resume.html` — Education, experience, and downloadable resume  
+3. `projects.html` — Portfolio of work  
+4. `socials.html` — Social media links
 
 ### **Projects**
-- Contains individual project folders, each with:
-  - `data.json` — Project metadata (title, description, tech stack).
-  - Thumbnail images or other project-specific media.
+1. `project1/` — Example project folder containing:
+   - `data.json` — Project details  
+   - `thumbnail.jpg` — Preview image
 
 ---
 
 ## 🚀 Features
-- **Dynamic navigation** (no full-page reloads) using `nav.js`.
-- **Reusable components** with `include.js`.
-- **Smooth CSS animations** via `transitions.css`.
-- **GitHub Pages friendly** — all asset paths relative.
-- **Mobile responsive** with clean, minimalist design.
+- Dynamic navigation without full page reloads
+- Reusable HTML components (`include.js`)
+- Smooth transitions & animations
+- Fully GitHub Pages compatible (relative paths)
+- Mobile responsive design
 
 ---
 
-## 📌 Usage
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/About-Me---PJ-Caleon.git
+## 🖤 Author
+**PJ Caleon**  
+Computer Engineering Undergraduate | Passionate about Embedded Systems & Software Development
