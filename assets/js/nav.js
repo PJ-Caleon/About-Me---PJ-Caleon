@@ -1,49 +1,100 @@
 async function loadPage(page) {
   const main = document.querySelector("main");
 
+  // Slide out
   main.classList.remove("show", "slide-in");
   main.classList.add("slide-out");
+
+  // Wait for animation to finish
   await new Promise((r) => setTimeout(r, 400));
 
-  const res = await fetch(`${getBasePath()}pages/${page}.html`);
+  // Load new page HTML
+  const res = await fetch(`pages/${page}.html`);
   const html = await res.text();
+  main.innerHTML = html;
 
-  // Create a temp DOM from the HTML string
+  // ✅ If loading resume, manually inject download.js
+  if (page === "resume") {
+    const script = document.createElement("script");
+    script.src = "assets/js/download.js";
+    script.onload = () => {
+      console.log("✅ download.js loaded manually");
+      if (typeof setupDownloadButton === "function") {
+        console.log("💡 Running setupDownloadButton()...");
+        setupDownloadButton();
+      } else {
+        console.warn("❌ setupDownloadButton is not defined");
+      }
+    };
+    script.onerror = () => {
+      console.error("❌ Failed to load /assets/js/download.js");
+    };
+    document.body.appendChild(script);
+  }
+
+  // ✅ Also handle inline or other script tags in loaded HTML
   const temp = document.createElement("div");
   temp.innerHTML = html;
+  const scripts = temp.querySelectorAll("script");
 
-  // Fix <link> CSS paths before adding to DOM
-  temp.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
-    if (!link.href.startsWith("http")) {
-      link.href = getBasePath() + link.getAttribute("href").replace(/^\/+/, "");
-    }
-    document.head.appendChild(link);
-    link.remove(); // remove from temp so it’s not in main.innerHTML
-  });
-
-  // Fix <script> paths before adding to DOM
-  temp.querySelectorAll("script").forEach((script) => {
+  scripts.forEach((oldScript) => {
     const newScript = document.createElement("script");
-    if (script.src) {
-      if (!script.src.startsWith("http")) {
-        newScript.src = getBasePath() + script.getAttribute("src").replace(/^\/+/, "");
-      } else {
-        newScript.src = script.src;
+
+    if (oldScript.src) {
+      // Resolve relative paths
+      let resolvedSrc = oldScript.src;
+      if (!resolvedSrc.startsWith("http") && !resolvedSrc.startsWith("")) {
+        resolvedSrc = `assets/js/${resolvedSrc.split("/").pop()}`;
       }
+      newScript.src = resolvedSrc;
     } else {
-      newScript.textContent = script.textContent;
+      newScript.textContent = oldScript.textContent;
     }
+
     document.body.appendChild(newScript);
-    script.remove();
+
+    if (page === "projects") {
+  const script = document.createElement("script");
+  script.src = "assets/js/project.js";
+  script.onload = () => {
+    console.log("✅ project.js loaded manually");
+    if (typeof loadProjects === "function") {
+      console.log("💡 Running loadProjects()...");
+      loadProjects();
+    } else {
+      console.warn("❌ loadProjects is not defined");
+    }
+  };
+  script.onerror = () => {
+    console.error("❌ Failed to load /assets/js/project.js");
+  };
+  document.body.appendChild(script);
+}
+
   });
 
-  // Now insert the cleaned HTML into main
-  main.innerHTML = temp.innerHTML;
-
+  // Slide in animation
   main.classList.remove("slide-out");
   main.classList.add("slide-in");
+
   setTimeout(() => {
     main.classList.remove("slide-in");
     main.classList.add("show");
   }, 50);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      main.classList.remove("slide-in");
+      main.classList.add("show");
+    });
+  });
 }
+
+// Handle clicks on navigation items
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("[data-page]");
+  if (!link) return;
+  e.preventDefault();
+  const page = link.getAttribute("data-page");
+  loadPage(page);
+});
