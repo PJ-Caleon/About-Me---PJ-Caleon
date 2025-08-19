@@ -11,7 +11,8 @@
       "FaceTracker",
       "SmartIOTTrashbin",
       "GloveController",
-      "SuperSonic"
+      "SuperSonic",
+      "UnitTesting"
     ];
     const container = document.querySelector("main");
     if (!container) return;
