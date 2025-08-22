@@ -6,13 +6,13 @@
     console.trace("📦 loadProjects called from:");
 
     const projectList = [
+      "SuperSonic",
+      "GloveController",
+      "FaceTracker",
+      "UnitTesting",
       "CarParkingCounter",
       "DownCounter",
-      "FaceTracker",
-      "SmartIOTTrashbin",
-      "GloveController",
-      "SuperSonic",
-      "UnitTesting"
+      "SmartIOTTrashbin"
     ];
     const container = document.querySelector("main");
     if (!container) return;
