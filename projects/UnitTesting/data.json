@@ -1,7 +1,6 @@
-{
+
   "title": "UNIT TESTING - UNITY (Dyson Project)",
   "description": "This project involves creating a unit testing framework for Unity, focusing on the development of a robust testing environment. ",
-  "materials": "ESP8266 D1 R1, Servo Motor 9G, LED, 220 Ohm Resistor",
+  "materials": "Unity C, Linux, Bitbucket, Bamboo",
   "image": "unit_testing.png",
   "document": "https://github.com/PJ-Caleon/Face-Tracker"
-}
