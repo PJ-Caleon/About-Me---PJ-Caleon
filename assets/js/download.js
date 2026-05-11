@@ -10,8 +10,8 @@ function setupDownloadButton() {
   button.addEventListener("click", () => {
     console.log("📄 Downloading resume PDF...");
     const link = document.createElement("a");
-    link.href = "/assets/images/Philip_Jeremiah_Caleon_Resume.pdf";
-    link.download = "Philip_Jeremiah_Caleon_Resume.pdf";
+    link.href = "/assets/images/PhilipJeremiahCaleon_RESUME.pdf";
+    link.download = "PhilipJeremiahCaleon_RESUME.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
